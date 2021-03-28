@@ -1,0 +1,7 @@
+app:
+  maps:
+    url: ""
+    key: ""
+  weather:
+    url: ""
+    token: ""
