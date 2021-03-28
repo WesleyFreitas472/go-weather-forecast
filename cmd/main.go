@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"strings"
 	configs "wesleyfreitas472/go-weather-forecast/pkg/config"
 	"wesleyfreitas472/go-weather-forecast/pkg/services"
 )
@@ -21,6 +22,7 @@ func main() {
 		return
 	}
 	address := os.Args[1]
+	address = replaceWhiteSpaces(address)
 
 	appContext := AppContext{}
 	config, err := configs.ReadConfig(configFile)
@@ -48,6 +50,10 @@ func main() {
 
 	fmt.Println("Local: ", weather.Name)
 	fmt.Println("Temperatura:", (weather.Main.Temp-32)/1.8, "Cº")
+}
+
+func replaceWhiteSpaces(address string) string {
+	return strings.Replace(address, " ", "%20", -1)
 }
 
 func checkError(err error) {
