@@ -11,6 +11,7 @@ services:
   - docker
 
 install:
+  - export TRAVIS_BUILD_DIR=$GOPATH/src/WesleyFreitas472/go-weather-forecast
   - go get -u golang.org/x/lint/golint
 
 script:
