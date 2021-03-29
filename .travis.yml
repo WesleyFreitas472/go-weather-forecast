@@ -10,12 +10,6 @@ branches:
 services:
   - docker
 
-install:
-  - export TRAVIS_BUILD_DIR=$GOPATH/src/WesleyFreitas472/go-weather-forecast
-  - echo $GOPATH
-  - cd $TRAVIS_BUILD_DIR
-  - go get -u golang.org/x/lint/golint
-
 script:
   - go build -v -a -installsuffix cgo -o ./build/weather-forecast cmd/*.go
   - docker build . -t weather-forecast:master
