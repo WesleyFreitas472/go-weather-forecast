@@ -20,5 +20,5 @@ install:
 script:
   - go build -v -a -installsuffix cgo -o ./build/weather-forecast cmd/*.go
   - docker build . -t weather-forecast:master
-  - docker login $DOCKER_USERNAME -p $DOCKER_PASSWORD
+  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
   - docker push wesleyfreitas472/weather-forecast:master
