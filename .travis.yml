@@ -22,3 +22,4 @@ script:
   - docker build . -t weather-forecast:master
   - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
   - docker push wesleyfreitas472/weather-forecast:master
+
