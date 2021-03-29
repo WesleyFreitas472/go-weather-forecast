@@ -10,6 +10,13 @@ branches:
 services:
   - docker
 
+install:
+  - export GOPATH=$HOME/gopath
+  - mkdir -p $HOME/gopath/WesleyFreitas472/go-weather-forecast
+  - rsync -az ${TRAVIS_BUILD_DIR}/ $HOME/gopath/WesleyFreitas472/go-weather-forecast
+  - export TRAVIS_BUILD_DIR=$HOME/gopath/WesleyFreitas472/go-weather-forecast
+  - cd $HOME/gopath/WesleyFreitas472/go-weather-forecast
+
 script:
   - go build -v -a -installsuffix cgo -o ./build/weather-forecast cmd/*.go
   - docker build . -t weather-forecast:master
