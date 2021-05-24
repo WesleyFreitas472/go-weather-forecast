@@ -5,3 +5,4 @@ app:
   weather:
     url: ""
     token: ""
+  newItem: ""
